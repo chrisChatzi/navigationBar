@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>CXI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ccHeader.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav id="cc-header">
+		<div id="cc-header-logo">Your logo</div>
+		<ul id="cc-header-ul"></ul>
+		<div id="cc-header-bars">
+			&nbsp;
+			<div class="cc-line" id="cc-lineTop"></div>
+			<div class="cc-line" id="cc-lineMid"></div>
+			<div class="cc-line" id="cc-lineBot"></div>
+		</div>
+	</nav>
+	<nav id="cc-header-mobile">
+		<ul id="cc-header-mobile-ul"></ul>
+	</nav>
+	<div id="cc-content">
+		<div id="cc-title">
+			<div class="info" id="info1">
+				<p class="infoMain">Create your own navigation bar just by setting a JSON object.</p>
+				<p class="infoInfo">(mouse wheel down to continue)</p>
+			</div>
+			<div class="info" id="info2">
+				<p class="infoMain">Control the items, colors, margins, paddings etc.. without touching HTML nor CSS</p>
+				<p class="infoInfo"><button id="cc-start" class="infoButton">Get started</button></p>
+			</div>
+			<div class="info" id="info3">
+				<p class="infoMain">Or choose one of the default themes</p>
+				<div class="infoThemes">
+					<div class="infoInfo-div">
+						<button id="cc-dark" class="infoButton infoTheme infoDark">Dark one</button>
+					</div>
+					<div class="infoInfo-div">
+						<button id="cc-gold" class="infoButton infoTheme infoGold">Gold one</button>
+					</div>
+					<div class="infoInfo-div">
+						<button id="cc-blue" class="infoButton infoTheme infoBlue">Blue one</button>
+					</div>
+					<div class="infoInfo-div">
+						<button id="cc-light" class="infoButton infoTheme infoLight">Light one</button>
+					</div>
+				</div>
+			</div>
+			<div id="dots">
+				<div class="dot" id="dot1">
+					<i class="fa fa-circle"></i>
+				</div>
+				<div class="dot" id="dot2">
+					<i class="fa fa-circle-thin"></i>
+				</div>
+				<div class="dot" id="dot3">
+					<i class="fa fa-circle-thin"></i>
+				</div>
+			</div>
+		</div>
+		<div id="cc-json">
+			<div id="json-main">
+				<div id="json-back"><i class="fa fa-arrow-left"></i></div>
+				<div class="third">
+					<h3>How to use</h3>
+					<p>Include the following .css file to your HTML</p>
+						<pre>&lt;<span style="color: #f4d03f">link</span> rel=<span style="color: #90C695">"stylesheet"</span> href=<span style="color: #90C695">"css/ccHeader.css"</span>></pre>
+					<p>Be sure to include the following code inside your HTML</p>
+					<pre>
+<span style="color: #59ABE3">&lt;nav</span> id=<span style="color: #90C695">"cc-header"</span><span style="color: #59ABE3">></span>
+	<span style="color: #59ABE3">&lt;div</span> id=<span style="color: #90C695">"cc-header-logo"</span>>Your logo<span style="color: #59ABE3">&lt;/div></span>
+	<span style="color: #59ABE3">&lt;ul</span> id=<span style="color: #90C695">"cc-header-ul"</span><span style="color: #59ABE3">>&lt;/ul></span>
+	<span style="color: #59ABE3">&lt;div</span> id=<span style="color: #90C695">"cc-header-bars"</span><span style="color: #59ABE3">></span>
+		&#38;nbsp;
+		<span style="color: #59ABE3">&lt;div</span> class=<span style="color: #90C695">"cc-line"</span> id=<span style="color: #90C695">"cc-lineTop"</span><span style="color: #59ABE3">>&lt;/div></span>
+		<span style="color: #59ABE3">&lt;div</span> class=<span style="color: #90C695">"cc-line"</span> id=<span style="color: #90C695">"cc-lineMid"</span><span style="color: #59ABE3">>&lt;/div></span>
+		<span style="color: #59ABE3">&lt;div</span> class=<span style="color: #90C695">"cc-line"</span> id=<span style="color: #90C695">"cc-lineBot"</span><span style="color: #59ABE3">>&lt;/div></span>
+	<span style="color: #59ABE3">&lt;/div></span>
+<span style="color: #59ABE3">&lt;/nav></span>
+<span style="color: #59ABE3">&lt;nav</span> id=<span style="color: #90C695">"cc-header-mobile"</span><span style="color: #59ABE3">></span>
+	<span style="color: #59ABE3">&lt;ul</span> id=<span style="color: #90C695">"cc-header-mobile-ul"</span><span style="color: #59ABE3">>&lt;/ul></span>
+<span style="color: #59ABE3">&lt;/nav></span>
+<span style="color: #59ABE3">&lt;div</span> id=<span style="color: #90C695">"cc-content"</span><span style="color: #59ABE3">>&lt;/div></span>
+					</pre>
+					<p>The <i>cc-content</i> div will hold the rest of your HTML code. You can change the id name from the JSON</p>
+					<p>Include the following script <b>before</b> the <i>index.js</i>
+						<pre>&lt;<span style="color: #f4d03f">script</span> src=<span style="color: #90C695">"ccHeader.js"</span>>&lt;<span style="color: #59ABE3">/script</span>></pre>
+					<p>Then inside your <i>index.js</i></p>
+					<pre>
+<span style="color: #f4d03f">let</span> <span style="color: #59ABE3">objClass</span> = new <span style="color: #F1A9A0">ccClass</span>();
+<span style="color: #f4d03f">let</span> <span style="color: #59ABE3">obj</span> = {
+    <span style="color: #90C695">content</span> : <span style="color: #90C695">"cc-content"</span>,
+	<span style="color: #90C695">attrs</span> : {
+        <span style="color: #90C695">position</span> : <span style="color: #90C695">"left"</span>,
+        <span style="color: #90C695">color</span> : <span style="color: #90C695">"#fff"</span>,
+        <span style="color: #90C695">background</span> : <span style="color: #90C695">"#242428"</span>,
+	...
+	...
+};
+<span style="color: #59ABE3">objClass</span>.<span style="color: #F1A9A0">init</span>(<span style="color: #59ABE3">obj</span>);
+					</pre>
+					<p>The <i>obj</i> JSON object includes all the settings</p>
+					<p>If you want to use the default themes:</p>
+					<pre>
+						<span style="color: #59ABE3">objClass</span>.<span style="color: #F1A9A0">default</span>(<span style="color: #59ABE3">str</span>);
+					</pre>
+					<p>Where <i>str</i> is: <b>cc-dark</b> | <b>cc-light</b> | <b>cc-gold</b> | <b>cc-blue</b></p>
+					<p style="font-size: 24px">See details <a href="json.html">here</a></p>
+				</div>
+				<div class="third2">
+					<h3>Play around with some attributes</h3>
+					<div class="play-head">
+						<div class="play-top">
+							<div class="cc-item" id="play-header">Header style</div>
+							<div class="cc-item" id="play-hover">Item hover</div>
+							<div class="cc-item" id="play-active">Active item</div>
+						</div>
+						<div class="play-mid">
+							<div class="preview" id="preview">
+								<span style="color: #f4d03f">Click on the boxes above to change header's attributes</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="ccHeader.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
