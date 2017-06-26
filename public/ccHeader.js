@@ -9,6 +9,7 @@
         this.items = document.getElementById("cc-header-ul");
         this.bars = document.getElementById("cc-header-bars");
         this.itemList = document.getElementById("cc-header-ul");
+        this.itemListMobile = document.getElementById("cc-header-mobile-ul");
         this.liElems = document.getElementsByClassName('cc-header-ul-li');
         this.liElemsMobile = document.getElementsByClassName('cc-header-sub-ul-li');
         this.mobileCreated = false;     //check if mobile menu has been created
@@ -147,7 +148,15 @@
                 //bars click
                 document.getElementById("cc-header-bars").addEventListener('click', function(e){self.barClickHandler(e, self)}, false);
                 // resize
-                window.addEventListener('resize', function(e){ self.checkWidth(self.itemList, self); }, false);
+                window.addEventListener('resize', function(e){
+                    let elem = self.itemList
+                    if(self.headerElem.offsetWidth >= (self.itemList.offsetWidth+100+self.header.logo.width+self.header.logo.padding)
+                        && !self.header.bar.alwaysOn) self.checkWidth(elem, self);
+                        else{
+                            elem = self.itemListMobile;
+                            self.checkWidth(elem, self);
+                        }
+                }, false);
                 //scroll
                 window.addEventListener('scroll', function(e){self.scrollHandler(e, self)}, false);
             }
@@ -358,6 +367,7 @@
         },
         //check if items+logo exceed header's width
         checkWidth : function (el, self){
+            let item = self.header.attrs.item;
             //close mobile submenu
             this.barClick(true, this);
             //check width of items, if it exceeds the window widths go to mobile mode
@@ -367,12 +377,12 @@
                 self.bars.style.display = "block";
                 self.headerLogo.style.padding = "0px";
             }else{
-                if(self.headerElem.offsetWidth >= (el.offsetWidth+100+self.header.logo.width+self.header.logo.padding)
+                if(self.headerElem.offsetWidth >= (self.header.menus.length * (item.width+item.padding*2+item.margin*2+2))
                     && !self.header.bar.alwaysOn){
                     self.items.style.display = "block";
                     self.bars.style.display = "none";
                     self.headerMobile.style.display = "none";
-                    self.headerLogo.style.padding = "0 "+this.header.logo.padding+"px";
+                    self.headerLogo.style.padding = "0 "+self.header.logo.padding+"px";
                 }else{
                     self.items.style.display = "none";
                     self.itemList.style.display = "none";
